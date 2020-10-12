@@ -6,7 +6,8 @@
  * cerca del parking, aparcan un nº elevado de horas y se benefician de esta 
  * tarifa más económica
  * (leer enunciado)
- * 
+ * Asier Sánchez Barberena
+ * DAM1 ProyectoParking
  */
 public class Parking
 {
@@ -175,6 +176,7 @@ public class Parking
         clienteMaximoComercial);
         System.out.println("y pagó " + importeMaximoComercial + "€");
         System.out.println("**********************************");
+        System.out.println();
     }
 
     /**
@@ -189,7 +191,7 @@ public class Parking
         maximo = clientesLunes;
         }
         if (maximo < clientesSabado) {
-        dia = "Sabado";
+        dia = "Sábado";
         maximo = clientesLunes;
         }
         if (maximo < clientesDomingo) {
