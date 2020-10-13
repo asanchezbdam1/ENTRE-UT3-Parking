@@ -13,19 +13,25 @@ public class Parking
 {
     private final char REGULAR = 'R';
     private final char COMERCIAL = 'C';
+    
     private final double PRECIO_BASE_REGULAR = 2.0;
     private final double PRECIO_MEDIA_REGULAR_HASTA11 = 3.0;
     private final double PRECIO_MEDIA_REGULAR_DESPUES11 = 5.0;
+    
     private final int HORA_INICIO_ENTRADA_TEMPRANA = 6 * 60;
     private final int HORA_FIN_ENTRADA_TEMPRANA = 8 * 60 + 30;
     private final int HORA_INICIO_SALIDA_TEMPRANA = 15 * 60;
     private final int HORA_FIN_SALIDA_TEMPRANA = 18 * 60;
+    
     private final double PRECIO_TARIFA_PLANA_REGULAR = 15.0;
     private final double PRECIO_PRIMERAS3_COMERCIAL = 5.0;
     private final double PRECIO_MEDIA_COMERCIAL = 3.0;
+    
     private String nombre;
+    
     private int cliente, regular, comercial, clientesLunes, clientesSabado,
     clientesDomingo, clienteMaximoComercial;
+    
     private double importeTotal, importeMaximoComercial;
     /**
      * Inicializa el parking con el nombre indicada por el parámetro.
