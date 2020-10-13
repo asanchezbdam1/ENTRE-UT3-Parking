@@ -79,28 +79,35 @@ public class Parking
      */
     public void facturarCliente(char tipoTarifa, int entrada, int salida, int dia) {
         cliente++;
+        double importe;
+        
         int horaEntrada = entrada / 100;
         int horaSalida = salida / 100;
         int minutoEntrada = entrada % 100;
         int minutoSalida = salida % 100;
+        
         int tiempoEntrada = horaEntrada * 60 + minutoEntrada;
         int tiempoSalida = horaSalida * 60 + minutoSalida;
+        
         String minutosEntradaString;
         String minutosSalidaString;
+        String tarifa;
+        
         if (minutoEntrada < 10) {
             minutosEntradaString = "0" + minutoEntrada;
         }
         else {
             minutosEntradaString = "" + minutoEntrada;
         }
+        
         if (minutoSalida < 10) {
             minutosSalidaString = "0" + minutoSalida;
         }
         else {
             minutosSalidaString = "" + minutoSalida;
         }
-        double importe;
-        String tarifa;
+        
+        
         switch (tipoTarifa) {
             case 'R':
             if (tiempoEntrada >= HORA_INICIO_ENTRADA_TEMPRANA &&
@@ -142,6 +149,7 @@ public class Parking
             comercial++;
             break;
         }
+        
         importeTotal += importe;
         System.out.println("**********************************");
         System.out.println("Cliente nº: " + cliente);
@@ -150,10 +158,12 @@ public class Parking
         System.out.println("Tarifa a aplicar: " + tarifa);
         System.out.println("Importe a pagar: " + importe + "€");
         System.out.println("**********************************");
+        
         if (importeMaximoComercial < importe) {
             clienteMaximoComercial = cliente;
             importeMaximoComercial = importe;
         }
+        
         switch (dia) {
             case 1: clientesLunes++; break;
             case 6: clientesSabado++; break;
@@ -186,18 +196,22 @@ public class Parking
     public String diaMayorNumeroClientes() {
         int maximo = 0;
         String dia = "";
+        
         if (maximo < clientesLunes) {
         dia = "Lunes";
         maximo = clientesLunes;
         }
+        
         if (maximo < clientesSabado) {
         dia = "Sábado";
         maximo = clientesLunes;
         }
+        
         if (maximo < clientesDomingo) {
         dia = "Domingo";
         maximo = clientesLunes;
         }
+        
         return dia;
     }
 
