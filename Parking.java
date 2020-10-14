@@ -151,6 +151,10 @@ public class Parking
                 importe += (tiempoSalida - tiempoEntrada - 180)
                 / 30 * PRECIO_MEDIA_COMERCIAL;
             }
+            if (importeMaximoComercial < importe) {
+                clienteMaximoComercial = cliente;
+                importeMaximoComercial = importe;
+            }
             tarifa = "COMERCIAL";
             comercial++;
             break;
@@ -164,11 +168,6 @@ public class Parking
         System.out.println("Tarifa a aplicar: " + tarifa);
         System.out.println("Importe a pagar: " + importe + "€");
         System.out.println("**********************************");
-        
-        if (importeMaximoComercial < importe) {
-            clienteMaximoComercial = cliente;
-            importeMaximoComercial = importe;
-        }
         
         switch (dia) {
             case 1: clientesLunes++; break;
@@ -188,7 +187,7 @@ public class Parking
         System.out.println("Importe total entre todos los clientes: " + importeTotal + "€");
         System.out.println("Nº clientes tarifa regular: " + regular);
         System.out.println("Nº clientes tarifa comercial: " + comercial);
-        System.out.println("Cliente tarifa COMERCIAL con favtura máxima fue el nº " +
+        System.out.println("Cliente tarifa COMERCIAL con factura máxima fue el nº " +
         clienteMaximoComercial);
         System.out.println("y pagó " + importeMaximoComercial + "€");
         System.out.println("**********************************");
@@ -216,6 +215,22 @@ public class Parking
         if (maximo < clientesDomingo) {
         dia = "Domingo";
         maximo = clientesLunes;
+        }
+        
+        if (clientesLunes == clientesSabado) {
+        dia = "Lunes y Sábado";
+        }
+        
+        if (clientesLunes == clientesDomingo) {
+        dia = "Lunes y Domingo";
+        }
+        
+        if (clientesDomingo == clientesSabado) {
+        dia = "Sábado y Domingo";
+        }
+        
+        if (clientesDomingo == clientesSabado && clientesDomingo == clientesLunes) {
+        dia = "Lunes, Sábado y Domingo por igual";
         }
         
         return dia;
