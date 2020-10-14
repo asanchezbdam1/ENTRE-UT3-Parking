@@ -6,8 +6,7 @@
  * cerca del parking, aparcan un nº elevado de horas y se benefician de esta 
  * tarifa más económica
  * (leer enunciado)
- * Asier Sánchez Barberena
- * DAM1 ProyectoParking
+ * @author - Asier Sánchez
  */
 public class Parking
 {
